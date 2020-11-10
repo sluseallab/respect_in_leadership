@@ -1,0 +1,115 @@
+---
+title: "A Systematic and Critical Review of Research on Respect in Leadership"
+subtitle: "Dynamic Tables"
+author: " "
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+
+    
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(scipen=999)
+```
+
+```{r include=FALSE}
+library(readxl)
+library(DT)
+library(tidyverse)
+library(reactable)
+```
+
+```{r include=FALSE}
+T1 <- read_excel("~/Dropbox/LQ - Respectful leadership/RR2/Tables/Combined Tables.xlsx", sheet = "Table 1")
+T2 <- read_excel("~/Dropbox/LQ - Respectful leadership/RR2/Tables/Combined Tables.xlsx", sheet = "Table 2")
+T3 <- read_excel("~/Dropbox/LQ - Respectful leadership/RR2/Tables/Combined Tables.xlsx", sheet = "Table 3")
+```
+
+<!-- `reactable` vignette -->
+<!-- https://glin.github.io/reactable/index.html -->
+
+# Table 1  
+## *Overview of Concepts and Definitions of Respect found in the Leadership Literature*  
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+T1 %>%
+  select(-Index) %>%
+  reactable(.,
+          resizable=TRUE,
+          filterable=TRUE,
+          searchable=TRUE,
+          bordered = TRUE,
+          highlight = TRUE,
+          strip= TRUE,
+          wrap = FALSE,
+          fullWidth = TRUE,
+          compact=FALSE,
+          showSortable=TRUE,
+          columns = list(
+            `Leadership Concept/Construct` = colDef(name = "Leadership Concept/Construct", width = 400),
+            `Definitions and Representative Quotes` = colDef(name = "Definitions and Representative Quotes", width = 1000),
+            `Key Citations` = colDef(name = "Key Citations", width = 400)
+            )
+          )
+```
+
+# Table 2    
+## *Overview of Definitions and Measures of Respect in Leadership*    
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+T2 %>%
+  select(-Index) %>%
+  reactable(.,
+          resizable=TRUE,
+          filterable=TRUE,
+          searchable=TRUE,
+          bordered = TRUE,
+          highlight = TRUE,
+          strip= TRUE,
+          wrap = FALSE,
+          fullWidth = TRUE,
+          compact=FALSE,
+          showSortable=TRUE,
+          columns = list(
+            `Citation` = colDef(name = "Citation", width = 400),
+            `Theoretical Tradition` = colDef(name = "Theoretical Tradition", width = 400),
+            `Respect in Leadership Construct` = colDef(name = "Respect in Leadership Construct", width = 400),
+            `Definition/Description of Respectful in Leadership` = colDef(name = "Definition/Description of Respectful in Leadership", width = 1000),
+            `Measure Used` = colDef(name = "Measure Used", width = 400)
+            )
+          )
+```
+
+# Table 3  
+## *Overview of Research Designs, Samples, and Key Findings of Studies on Respect in Leadership*  
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+T3$`2019 Impact Factor`<-as.numeric(T3$`2019 Impact Factor`)
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+T3 %>%
+  select(-Index) %>%
+  reactable(.,
+          resizable=TRUE,
+          filterable=TRUE,
+          searchable=TRUE,
+          bordered = TRUE,
+          highlight = TRUE,
+          strip= TRUE,
+          wrap = FALSE,
+          fullWidth = TRUE,
+          compact=FALSE,
+          showSortable=TRUE,
+          columns = list(
+            `Citation` = colDef(name = "Citation", width = 400),
+            `Journal` = colDef(name = "Journal", width = 400),
+            `2019 Impact Factor` = colDef(name = "2019 Impact Factor", width = 150, format = colFormat(digits = 2)),
+            `Research Design` = colDef(name = "Research Design", width = 400),
+            `Theoretical Tradition` = colDef(name = "Theoretical Tradition", width = 250)
+            )
+          )
+```

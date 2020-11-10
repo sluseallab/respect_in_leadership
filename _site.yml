@@ -1,0 +1,11 @@
+name: "A Systematic and Critical Review of Research on Respect in Leadership"
+navbar:
+  title: "Respect in Leadership"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "OA Tables"
+      href:  OA_Tables.html
+    - text: "Measurement Taxonomy"
+      href:  Measurement_Taxonomy.html
+output_dir: "docs"

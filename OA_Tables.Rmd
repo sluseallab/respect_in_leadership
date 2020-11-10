@@ -1,0 +1,119 @@
+---
+title: "Online Appendix (OA) Tables"
+author: " "
+date: " "
+output:
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(scipen=999)
+```
+
+```{r include=FALSE}
+library(readxl)
+library(DT)
+library(tidyverse)
+library(reactable)
+```
+
+```{r include=FALSE}
+T1 <- read_excel("data/Combined Tables.xlsx", sheet = "MS Table 1")
+OA_T1 <- read_excel("data/Combined Tables.xlsx", sheet = "OA Table 1")
+OA_T2 <- read_excel("data/Combined Tables.xlsx", sheet = "OA Table 2")
+OA_T3 <- read_excel("data/Combined Tables.xlsx", sheet = "OA Table 3")
+```
+
+<!-- `reactable` vignette -->
+<!-- https://glin.github.io/reactable/index.html -->
+
+To access supporting files (e.g., static tables, supplementary analyses), please click [here](https://osf.io/uz8qd/?view_only=06c93751e7894b97a001cce87a082b82).
+
+<br>
+
+### Online Appendix (OA) Table 1    
+*Overview of Definitions and Measures of Respect in Leadership*    
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+OA_T1 %>%
+  select(-Index) %>%
+  reactable(.,
+          resizable=TRUE,
+          filterable=TRUE,
+          searchable=TRUE,
+          bordered = TRUE,
+          highlight = TRUE,
+          strip= TRUE,
+          wrap = FALSE,
+          fullWidth = TRUE,
+          compact=FALSE,
+          showSortable=TRUE,
+          columns = list(
+            `Citation` = colDef(name = "Citation", width = 400),
+            `Theoretical Tradition` = colDef(name = "Theoretical Tradition", width = 400),
+            `Respect in Leadership Construct` = colDef(name = "Respect in Leadership Construct", width = 400),
+            `Definition/Description of Respectful in Leadership` = colDef(name = "Definition/Description of Respectful in Leadership", width = 1000),
+            `Measure Used` = colDef(name = "Measure Used", width = 400)
+            )
+          )
+```
+
+### Online Appendix (OA) Table 2  
+*Overview of Research Designs, Samples, and Key Findings of Studies on Respect in Leadership*  
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+OA_T2$`2019 Impact Factor`<-as.numeric(OA_T2$`2019 Impact Factor`)
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+OA_T2 %>%
+  select(-Index) %>%
+  reactable(.,
+          resizable=TRUE,
+          filterable=TRUE,
+          searchable=TRUE,
+          bordered = TRUE,
+          highlight = TRUE,
+          strip= TRUE,
+          wrap = FALSE,
+          fullWidth = TRUE,
+          compact=FALSE,
+          showSortable=TRUE,
+          columns = list(
+            `Citation` = colDef(name = "Citation", width = 400),
+            `Journal` = colDef(name = "Journal", width = 400),
+            `2019 Impact Factor` = colDef(name = "2019 Impact Factor", width = 150, format = colFormat(digits = 2)),
+            `Research Design` = colDef(name = "Research Design", width = 400),
+            `Theoretical Tradition` = colDef(name = "Theoretical Tradition", width = 250)
+            )
+          )
+```
+
+### Online Appendix (OA) Table 3  
+*Overview of Measures of Respect in Leadership*  
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+OA_T3 %>%
+  select(-Index) %>%
+  reactable(.,
+          resizable=TRUE,
+          filterable=TRUE,
+          searchable=TRUE,
+          bordered = TRUE,
+          highlight = TRUE,
+          strip= TRUE,
+          wrap = FALSE,
+          fullWidth = TRUE,
+          compact=FALSE,
+          showSortable=TRUE
+          #,
+          # columns = list(
+          #   `Citation` = colDef(name = "Citation", width = 400),
+          #   `Journal` = colDef(name = "Journal", width = 400),
+          #   `2019 Impact Factor` = colDef(name = "2019 Impact Factor", width = 150, format = colFormat(digits = 2)),
+          #   `Research Design` = colDef(name = "Research Design", width = 400),
+          #   `Theoretical Tradition` = colDef(name = "Theoretical Tradition", width = 250)
+          #  )
+          )
+```

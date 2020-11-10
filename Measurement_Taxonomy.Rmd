@@ -1,0 +1,44 @@
+---
+title: "Interactive Measurement Taxonomy"
+author: " "
+date: " "
+output:
+  html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(scipen=999)
+```
+
+```{r include=FALSE}
+library(readxl)
+library(DT)
+library(tidyverse)
+library(reactable)
+
+library(collapsibleTree)
+library(htmltools)
+```
+
+```{r include=FALSE}
+OA_T1 <- read_excel("data/Combined Tables.xlsx", sheet = "OA Table 1")
+```
+
+```{r include=FALSE}
+`Respect in Leadership` <- OA_T1 %>%
+  dplyr::select(`Respect in Leadership Construct`, `Measure Used`)
+```
+
+### **Instructions:** Click on a construct label below to explore the respect in leadership measurement taxonomy
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+collapsibleTree(
+  `Respect in Leadership`,
+  hierarchy = c("Respect in Leadership Construct",
+                "Measure Used"),
+  width = 1200,
+  zoomable = TRUE,
+  tooltip = FALSE,
+  collapsed = TRUE
+)
+```

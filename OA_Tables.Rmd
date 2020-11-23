@@ -107,13 +107,20 @@ OA_T3 %>%
           fullWidth = TRUE,
           compact=FALSE,
           showSortable=TRUE
-          #,
-          # columns = list(
-          #   `Citation` = colDef(name = "Citation", width = 400),
-          #   `Journal` = colDef(name = "Journal", width = 400),
-          #   `2019 Impact Factor` = colDef(name = "2019 Impact Factor", width = 150, format = colFormat(digits = 2)),
-          #   `Research Design` = colDef(name = "Research Design", width = 400),
-          #   `Theoretical Tradition` = colDef(name = "Theoretical Tradition", width = 250)
-          #  )
+          ,
+          columns = list(
+            `Theoretical Tradition` = colDef(name = "Theoretical Tradition", width = 400),
+            `Source` = colDef(name = "Source", width = 200),
+            `Short Citation` = colDef(name = "Short Citation", width = 400),
+            `Long Citation` = colDef(name = "Long Citation", width = 200),
+            `k` = colDef(name = "k", width = 150, format = colFormat(digits = 1)),
+            `Sample Size` = colDef(name = "Sample Size", width = 250),
+            `Content Representativeness` = colDef(name = "Content Representativeness", width = 300),
+            `Structure` = colDef(name = "Structure", width = 300),
+            `Response Process` = colDef(name = "Response Process", width = 300),
+            `Predictive/Concurrent/Incremental Validity` = colDef(name = "Predictive/Concurrent/Incremental Validity", width = 400),
+            `Convergent/Divergent Validity` = colDef(name = "Convergent/Divergent Validity", width = 300),
+            `Feasibility/Practicality` = colDef(name = "Feasibility/Practicality", width = 300)
+           )
           )
 ```
